@@ -1,0 +1,29 @@
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<h1>Процент CMS</h1>
+
+<!-- Элемент canvas для гистограммы -->
+<canvas #cmsChart></canvas>
+
+<!-- Таблица для отображения данных -->
+<table *ngIf="cmsPercentages.length > 0" border="1">
+  <thead>
+    <tr>
+      <th>CMS</th>
+      <th>Процент</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let company of cmsPercentages">
+      <td>{{ company.CMSName }}</td>
+      <td>{{ company.percentageOfTotal }}%</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Сообщение, если данных нет -->
+<div *ngIf="cmsPercentages.length === 0">
+  <p>Нет данных для отображения.</p>
+</div>

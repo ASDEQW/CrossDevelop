@@ -1,0 +1,58 @@
+/* Основной стиль страницы */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1; /* Легкий фон для страницы */
+}
+
+/* Стиль для хедера */
+.header {
+  display: flex;
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center;     /* Центрируем по вертикали */
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Яркий градиентный фон */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Легкая тень для создания глубины */
+  margin: 20px;
+  transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Анимация для плавного изменения фона при наведении */
+.header:hover {
+  background: linear-gradient(to right, #ff6a00, #f7b733);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Для изображения SVG */
+header svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Текст в SVG */
+text {
+  font-size: 30px;
+  font-weight: bold;
+  fill: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Тень для улучшения читаемости */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .header {
+      padding: 1rem;
+  }
+
+  header svg {
+      height: 180px; /* Немного уменьшаем размер изображения на мобильных */
+      width: auto;
+  }
+
+  text {
+      font-size: 22px;
+  }
+}

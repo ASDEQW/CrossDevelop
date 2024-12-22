@@ -1,0 +1,50 @@
+/* Основной стиль страницы */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1; /* Легкий фон для страницы */
+  padding-bottom: 80px; /* Добавляем отступ снизу для предотвращения перекрытия футером */
+}
+
+/* Стиль для футера */
+.footer {
+  display: flex;
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center;     /* Центрируем по вертикали */
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* Яркий градиентный фон */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Легкая тень для создания глубины */
+  position: relative; /* Убираем фиксированное положение футера */
+  margin: 0;
+  width: 100%;
+  bottom: 0;
+  transition: all 0.3s ease; /* Плавные переходы */
+  clear: both; /* Сброс отступов и позиционирования */
+}
+
+/* Анимация для плавного изменения фона при наведении */
+.footer:hover {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Текст в футере */
+.footer p {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Тень для улучшения читаемости */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1rem;
+  }
+
+  .footer p {
+    font-size: 16px; /* Уменьшаем размер текста на мобильных */
+  }
+}

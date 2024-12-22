@@ -1,0 +1,128 @@
+/* Основной контейнер для карточек */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Распределение карточек по нескольким столбцам */
+  gap: 20px; /* Отступы между карточками */
+  padding: 20px;
+  justify-items: center; /* Центрирование карточек в ячейках сетки */
+  max-width: 1200px; /* Ограничение максимальной ширины контейнера */
+  margin: 0 auto; /* Центрирование контейнера */
+}
+
+/* Стили для каждой карточки */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px; /* Максимальная ширина карточки */
+  display: flex;
+  flex-direction: column; /* Карточка будет иметь вертикальную структуру */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок карточки */
+.card-header {
+  background-color: #f4f4f4;
+  padding: 16px;
+  text-align: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  word-wrap: break-word; /* Перенос слов, если они не умещаются */
+}
+
+/* Тело карточки */
+.card-body {
+  padding: 16px;
+  flex-grow: 1; /* Тело карточки будет растягиваться по вертикали */
+  overflow: hidden; /* Чтобы избежать переполнения */
+}
+
+.card-body p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #555;
+  word-wrap: break-word; /* Перенос слов, если они не умещаются */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Добавляет многоточие, если текст не умещается */
+}
+
+.card-body p strong {
+  color: #333;
+}
+
+/* Стили для состояния загрузки */
+.loading {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  color: #007bff;
+}
+
+/* Стили для ошибок */
+.error {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #ff0000;
+}
+
+/* Мобильные стили: карточки по одному в ряд на маленьких экранах */
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;  /* Одна карточка на весь экран */
+  }
+
+  .card {
+    max-width: 100%;  /* Карточка будет занимать всю ширину */
+  }
+}
+
+/* Для экранов от 601px до 1024px (планшеты и небольшие ноутбуки) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* 2-3 карточки в ряд */
+  }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-edit {
+  background-color: #4CAF50;  /* Зеленый для редактирования */
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #45a049;
+}
+
+.btn-delete {
+  background-color: #f44336;  /* Красный для удаления */
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #e53935;
+}

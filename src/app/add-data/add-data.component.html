@@ -1,0 +1,46 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <!-- Name field -->
+  <label for="name">Company Name</label>
+  <input id="name" formControlName="name" type="text" required />
+  <div *ngIf="addForm.get('name')?.touched && addForm.get('name')?.invalid">
+    <small *ngIf="addForm.get('name')?.hasError('required')">Name is required.</small>
+    <small *ngIf="addForm.get('name')?.hasError('maxlength')">Name is too long (max 100 characters).</small>
+    <small *ngIf="addForm.get('name')?.hasError('pattern')">Name cannot contain numbers.</small>
+  </div>
+
+  <!-- Industry field -->
+  <label for="industry">Industry</label>
+  <input id="industry" formControlName="industry" type="text" required />
+  <div *ngIf="addForm.get('industry')?.touched && addForm.get('industry')?.invalid">
+    <small *ngIf="addForm.get('industry')?.hasError('required')">Industry is required.</small>
+    <small *ngIf="addForm.get('industry')?.hasError('pattern')">Industry cannot contain numbers.</small>
+  </div>
+
+  <!-- CMS field -->
+  <label for="cms">CMS</label>
+  <input id="cms" formControlName="cms" type="text" required />
+  <div *ngIf="addForm.get('cms')?.touched && addForm.get('cms')?.invalid">
+    <small *ngIf="addForm.get('cms')?.hasError('required')">CMS is required.</small>
+    <small *ngIf="addForm.get('cms')?.hasError('pattern')">CMS cannot contain numbers.</small>
+  </div>
+
+  <!-- External JS field -->
+  <label for="externaljs">External JS</label>
+  <input id="externaljs" formControlName="externaljs" type="text" required />
+  <div *ngIf="addForm.get('externaljs')?.touched && addForm.get('externaljs')?.invalid">
+    <small *ngIf="addForm.get('externaljs')?.hasError('required')">External JS is required.</small>
+  </div>
+
+  <!-- Social Links field -->
+  <label for="sociallinks">Social Links</label>
+  <input id="sociallinks" formControlName="sociallinks" type="text" required />
+  <div *ngIf="addForm.get('sociallinks')?.touched && addForm.get('sociallinks')?.invalid">
+    <small *ngIf="addForm.get('sociallinks')?.hasError('required')">Social Links are required.</small>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" [disabled]="addForm.invalid">Save</button>
+
+  <!-- Back button -->
+  <button type="button" (click)="goBack()">Back</button>
+</form>

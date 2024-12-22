@@ -1,0 +1,115 @@
+/* Основные стили для таблицы */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed; /* Устанавливаем фиксированное распределение столбцов */
+  border-radius: 8px;
+  overflow: hidden; /* Закругляем углы таблицы */
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  overflow: hidden; /* Скрываем переполнение */
+  text-overflow: ellipsis; /* Добавляем многоточие, если текст не помещается */
+  transition: background-color 0.3s ease;
+}
+
+/* Стилизация заголовков таблицы */
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  cursor: pointer; /* Указываем, что заголовок можно кликать */
+  text-transform: uppercase;
+}
+
+th:hover {
+  background-color: #e0e0e0; /* Изменяем цвет при наведении */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Чередуем цвета строк */
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Подсветка строки при наведении */
+}
+
+/* Стили для ячеек */
+td {
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+}
+
+td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* Сообщение об ошибке */
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Сообщение о загрузке */
+.loading {
+  font-size: 1.2rem;
+  color: blue;
+  margin-top: 20px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  table {
+    font-size: 12px; /* Уменьшаем шрифт на мобильных */
+  }
+
+  th, td {
+    padding: 8px; /* Меньше отступов на мобильных устройствах */
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/* Стили для поля поиска */
+.search-input {
+  width: 250px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50; /* Зелёный цвет при фокусе */
+  box-shadow: 0 1px 5px rgba(76, 175, 80, 0.5); /* Добавляем тень при фокусе */
+}
+
+/* Лейбл для поля поиска (если потребуется) */
+.search-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}

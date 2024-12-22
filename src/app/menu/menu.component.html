@@ -1,0 +1,21 @@
+<aside class="menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+    <li><a routerLink="/data-table" routerLinkActive="active">Data Table</a></li>
+    <li><a routerLink="/data-cards" routerLinkActive="active">Data Cards</a></li>
+    <li><a routerLink="/add-data" routerLinkActive="active">Add Data</a></li>
+    <li><a routerLink="/cms-percentage" routerLinkActive="active">Cms Percentage</a></li>
+  </ul>
+
+  <div *ngIf="isLoggedIn">
+    <p>Добро пожаловать, admin</p>
+    <button (click)="onLogout()">Выйти</button>
+  </div>
+  <div *ngIf="!isLoggedIn">
+    <p>Пожалуйста, войдите в систему.</p>
+    <a routerLink="/login">Перейти к странице входа</a>
+  </div>
+  
+  
+</aside>

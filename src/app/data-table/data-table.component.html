@@ -1,0 +1,66 @@
+<div *ngIf="!loading && !error">
+  <input 
+    type="text" 
+    placeholder="Поиск..." 
+    [(ngModel)]="searchQuery" 
+    (input)="filterData()" 
+    class="search-input"
+  />
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortData('id')">
+          ID
+          <span *ngIf="sortColumn === 'id'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th (click)="sortData('name')">
+          Название
+          <span *ngIf="sortColumn === 'name'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th (click)="sortData('industry')">
+          Отрасль
+          <span *ngIf="sortColumn === 'industry'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th (click)="sortData('cms')">
+          CMS
+          <span *ngIf="sortColumn === 'cms'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th (click)="sortData('externaljs')">
+          External JS
+          <span *ngIf="sortColumn === 'externaljs'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+        <th (click)="sortData('sociallinks')">
+          Социальные сети
+          <span *ngIf="sortColumn === 'sociallinks'">
+            {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of filteredCompanies">
+        <td>{{ company.id }}</td>
+        <td>{{ company.name }}</td>
+        <td>{{ company.industry }}</td>
+        <td>{{ company.cms }}</td>
+        <td>{{ company.externaljs }}</td>
+        <td>
+          <a *ngIf="company.sociallinks" [href]="company.sociallinks" target="_blank">
+            {{ company.sociallinks }}
+          </a>
+          <span *ngIf="!company.sociallinks">Нет ссылок</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

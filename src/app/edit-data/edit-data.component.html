@@ -1,0 +1,105 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <!-- Загрузка -->
+  <div *ngIf="loading" class="spinner">Loading...</div>
+
+  <!-- Ошибка -->
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <!-- Company Name -->
+  <div class="form-group">
+    <label for="name">Company Name</label>
+    <input
+      id="name"
+      formControlName="name"
+      class="form-control input-wide"
+      type="text"
+      required
+      [class.is-invalid]="editForm.get('name')?.invalid && editForm.get('name')?.touched"
+    />
+    <div *ngIf="editForm.get('name')?.touched && editForm.get('name')?.invalid">
+      <small *ngIf="editForm.get('name')?.hasError('required')">Company name is required.</small>
+      <small *ngIf="editForm.get('name')?.hasError('maxlength')">Company name is too long (max 100 characters).</small>
+      <small *ngIf="editForm.get('name')?.hasError('pattern')">Company name cannot contain numbers.</small>
+    </div>
+  </div>
+
+  <!-- Industry -->
+  <div class="form-group">
+    <label for="industry">Industry</label>
+    <input
+      id="industry"
+      formControlName="industry"
+      class="form-control input-wide"
+      type="text"
+      required
+      [class.is-invalid]="editForm.get('industry')?.invalid && editForm.get('industry')?.touched"
+    />
+    <div *ngIf="editForm.get('industry')?.touched && editForm.get('industry')?.invalid">
+      <small *ngIf="editForm.get('industry')?.hasError('required')">Industry is required.</small>
+      <small *ngIf="editForm.get('industry')?.hasError('pattern')">Industry cannot contain numbers.</small>
+    </div>
+  </div>
+
+  <!-- CMS -->
+  <div class="form-group">
+    <label for="cms">CMS</label>
+    <input
+      id="cms"
+      formControlName="cms"
+      class="form-control input-wide"
+      type="text"
+      required
+      [class.is-invalid]="editForm.get('cms')?.invalid && editForm.get('cms')?.touched"
+    />
+    <div *ngIf="editForm.get('cms')?.touched && editForm.get('cms')?.invalid">
+      <small *ngIf="editForm.get('cms')?.hasError('required')">CMS is required.</small>
+      <small *ngIf="editForm.get('cms')?.hasError('pattern')">CMS cannot contain numbers.</small>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <div class="form-group">
+    <label for="externaljs">External JS</label>
+    <input
+      id="externaljs"
+      formControlName="externaljs"
+      class="form-control input-wide"
+      type="text"
+      required
+      [class.is-invalid]="editForm.get('externaljs')?.invalid && editForm.get('externaljs')?.touched"
+    />
+    <div *ngIf="editForm.get('externaljs')?.touched && editForm.get('externaljs')?.invalid">
+      <small *ngIf="editForm.get('externaljs')?.hasError('required')">External JS is required.</small>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="form-group">
+    <label for="sociallinks">Social Links</label>
+    <input
+      id="sociallinks"
+      formControlName="sociallinks"
+      class="form-control input-wide"
+      type="text"
+      required
+      [class.is-invalid]="editForm.get('sociallinks')?.invalid && editForm.get('sociallinks')?.touched"
+    />
+    <div *ngIf="editForm.get('sociallinks')?.touched && editForm.get('sociallinks')?.invalid">
+      <small *ngIf="editForm.get('sociallinks')?.hasError('required')">Social Links are required.</small>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="editForm.invalid || loading"
+  >
+    Save
+  </button>
+
+  <!-- Back Button -->
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+</form>

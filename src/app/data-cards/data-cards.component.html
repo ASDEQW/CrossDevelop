@@ -1,0 +1,29 @@
+<div *ngIf="loading" class="loading">Загрузка...</div>
+
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error">
+  <div class="cards-container">
+    <div *ngFor="let company of companies" class="card">
+      <div class="card-header">
+        <h3>{{ company.name }}</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Отрасль:</strong> {{ company.industry }}</p>
+        <p><strong>CMS:</strong> {{ company.cms }}</p>
+        <p><strong>External JS:</strong> {{ company.externaljs }}</p>
+        <p><strong>Ссылки на соцсети:</strong> {{ company.sociallinks }}</p>
+      </div>
+
+      <div class="card-actions">
+        <!-- Кнопка для редактирования -->
+        <button class="btn-edit" (click)="editCompany(company.id)">Редактировать</button>
+        
+        <!-- Кнопка для удаления -->
+        <button class="btn-delete" (click)="deleteCompany(company.id)">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>

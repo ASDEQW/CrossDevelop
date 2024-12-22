@@ -1,0 +1,95 @@
+/* Общие стили для формы */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* Убираем ограничение ширины формы */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для меток */
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Стили для полей ввода */
+input {
+    width: 100%; /* Устанавливаем ширину 100% */
+    margin-bottom: 16px; /* Отступ снизу */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Стили для активного состояния полей ввода */
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Стили для кнопок */
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Стили для неактивной кнопки */
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Стили для кнопки "Back" */
+button[type="button"] {
+    background-color: #f44336;
+}
+
+/* Стили для текста ошибок */
+small {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+/* Стили для сообщения об ошибке в поле */
+input.ng-touched.ng-invalid {
+    border-color: red;
+}
+
+/* Дополнительный отступ для кнопок */
+button + button {
+    margin-top: 10px;
+}
+
+/* Стиль для выравнивания кнопок */
+button {
+    width: 100%;
+}
+
+/* Обновленные стили для отступов и ширины */
+.form-group {
+    margin-bottom: 20px; /* Добавляем отступ для каждой группы */
+}
+
+/* Убедимся, что текст ошибки не перекрывает другие элементы */
+input.ng-invalid + small {
+    margin-top: 5px;
+}
+
+/* Добавим стиль для ошибок в активных состояниях полей */
+input.ng-invalid.ng-touched {
+    border-color: #f44336; /* Красный цвет рамки для ошибок */
+}
